@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen"/>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="glyphicons-halflings.png"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery.carouFredSel-6.2.0.js"></script>
+
+        <style>
+            .box{
+                background: rgba(0,0,0,0.2);
+                padding: 10px 0px;
+                text-align: center;
+                margin-top: 10px;
+                border-radius: 5px;
+
+            }
+
+            .box h3, .box h4, .box p, .box a{
+                padding-left: 6px;
+            }
+
+            .what1, .side, .three{
+                text-align: left;
+            }
+
+            .newsletter{
+                background: #ffcc99;
+            }
+
+            .carousel-indicators {
+                right: 42px;
+            }   
+
+            .carousel-control.left{
+                margin-left: 91px;
+            }
+
+            .windowpane{
+                margin-top: 60px;
+
+            }
+
+            .hero-unit{
+                padding: 15px;
+                padding-left: 60px;
+                background-image: url("img/beer.jpg");
+                height: 600px;
+                
+            }
+
+
+
+            .control-group{
+                display: inline-block;
+                width: 400px;
+            }
+
+            .control-label{
+                display: inline-block;
+            }
+            .controls{
+                display: inline-block;
+            }
+
+            .input-prepend{
+                margin-bottom: 4px;
+            }
+
+          
+
+            a #launch.btn{
+                margin-left: 6px;
+            }
+
+            .alert-error{
+                background-color: #ff9999;
+                color: #990000;
+                margin-top: 200px;
+            }
+
+          .maintext h1, .maintext h3, .maintext p{
+            color: white;
+          }
+
+          .maintext p{
+            width: 580px;
+            line-height: 25px;
+          }
+
+          .schedule{
+            text-align: center;
+            background-image: url("img/beer_side.jpg");
+          }
+
+          .table{
+            background-image: url("img/baseball.jpg");
+          }
+
+
+        </style>
+
+        <script>
+          $(document).ready(function() {
+              $("#foo1").carouFredSel();                 
+              });
+
+            var newTeam = function newTeam(teamName, mgrName, phone, inputEmail, zip, sponsor) {
+              this.teamName = teamName;
+              this.mgrName = mgrName;
+              this.phone = phone;
+              this.inputEmail = ;
+              this.zip = zip;
+              this.sponsor = sponsor;
+            };
+
+
+              $('form').submit(function){
+                  function register()
+                {  
+                  var field1 = document.getElementById('teamName').value;  
+                  var field2 = document.getElementById('mgrFirst').value;  
+                  var field3 = document.getElementById('mgrLast').value;  
+                  var field4 = document.getElementById('phone').value;  
+                  var field5 = document.getElementById('inputEmail').value;  
+                  var field6 = document.getElementById('zip').value;  
+                  var field7 = document.getElementById('sponsor').value;  
+                    
+                  alert(field1+''+field2+''+field3+''+field4+''+field5+''+field6+''+field7);
+
+                  }  
+              });
+          });
+        </script>
+    </head>
+    <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Bootstrap Exercise</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container windowpane">
+        <div class="hero-unit">
+            <div class="row">
+                <div class="span12 maintext">
+                    <h1>Beer League Baseball!</h1>
+                    <h3>There's No Crying in Baseball!....But there is BEER!!!</h3>
+                    <p>It's that time of year again. Who doesn't love BEER and BASEBALL? Join our league today for FREE. Weekly matchups with other fanatics here in Nashville.</p><p>Serious people need not apply...</p>
+                    <a href="#myModal" role="button" class="btn" id="launch" data-toggle="modal">SIGN UP TODAY</a>
+                    <!-- Modal -->
+                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Team Registration Form</h3>
+                      </div>
+                      <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Registraion</legend>
+                            <label>Team Name</label>
+                              <input type="text" id="teamName" placeholder="Team Name" name="textbox" value="">
+                            <label>Manager Name</label>
+                              <input id="mgrFirst" type="text" placeholder="First Name" name="textbox" value="">
+                              <input id="mgrLast" type="text" placeholder="Last Name" name="textbox" value="">
+                            <label>Manager E-mail</label>
+                              <input type="text" id="inputEmail" placeholder="Email" name="textbox" value="">
+                            <label>Manager Phone Number</label>
+                              <input type="text" id="phone" placeholder="Phone Number" name="textbox" value="">
+                            <label>Manager Zip Code</label>
+                              <input type="text" id="zip" placeholder="Zip Code" name="textbox" value="">
+                             <label>Sponsor</label>
+                             <input type="text" id="sponsor" placeholder="Team Sponsor" name="textbox" value=""></br>
+                            <button type="submit" class="btn">Register Team</button>
+                        </fieldset>
+                      </form>
+                    </div>  
+                </div>
+            </div>
+          <div class="alert alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Don't Wait!</strong> Registration will close on Feb 28th!
+          </div> 
+        </div>
+        <div class="row">
+            <div class="span12 box what1">
+                <div class="image_carousel">
+                  <div id="foo1">
+                      <img src="logo1.jpg" alt="basketball" width="225" height="140" />
+                      <img src="logo2.jpg" alt="beachtree" width="225" height="140" />
+                      <img src="logo3.jpg" alt="cupcackes" width="225" height="140" />
+                      <img src="logo4.jpg" alt="hangmat" width="225" height="140" />
+                      <img src="logo5.jpg" alt="new york" width="225" height="140" />
+                      <img src="logo6.jpg" alt="new york" width="225" height="140" />
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span8 box three">   
+                <table class="table">
+                  <tr>
+                    <th>Team</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Win %</th>
+                  </tr>
+                  <tr>
+                    <td>Team 1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 4</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 5</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 6</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 7</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  <tr>
+                    <td>Team 8</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                </table>
+            </div>
+            <div class="span4 box schedule">
+                <h3>Weekly Matchups/Results</h3>
+                <div class="accordion" id="accordion2">
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                        Week 1 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse in">
+                      <div class="accordion-inner">
+                        <table class="games">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                       </div>                   
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                        Week 2 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                        Week 3 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseThree" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                        Week 4 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseFour" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p><a class="btn" href="#">Read more</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 box newsletter">
+                <h4>Sign up for our newsletter</h4>
+                <div class="control-group">
+                  <label class="control-label" for="inputIcon">Email address</label>
+                  <div class="controls">
+                    <div class="input-prepend">
+                      <span class="add-on"><i class="icon-envelope"></i></span>
+                      <input class="span2" id="inputIcon" type="text">
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© Company 2013</p>
+        </footer>
+    </div>
