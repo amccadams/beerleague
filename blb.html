@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="glyphicons-halflings.png"/>
-        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="bootstrap.min.js"></script>
         <script type="text/javascript" src="jquery.carouFredSel-6.2.0.js"></script>
+        <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
 
         <style>
             .box{
@@ -95,31 +96,119 @@
           .schedule{
             text-align: center;
             background-image: url("img/beer_side.jpg");
+            font-size: 115%;
           }
 
           .table{
             background-image: url("img/baseball.jpg");
+            font-size: 115%;
           }
+
+          .games{
+            width: 335px;
+            background: rgba(0,0,0,0.14);
+          }
+
+
 
 
         </style>
 
         <script>
+           
+           $(document).ready(function(){
+              //form validation
+              $("#commentForm").validate();
+            });
+
+           //Array method from class
+           $(document).ready(function(){
+              
+
+              var league_array = [];
+
+              //empty object for JSON conversion
+              $("#registerTeam").click(function(){
+                var team_array = [];
+                $(".team_inputs").each(function(){
+                  team_array.push($(this).val());
+                });//close team_array
+                league_array.push(team_array);  //push to league_array
+                //console.log(team_array);
+                //$("#standings").append("<tr><td>"+ team_array[0]+"</td></tr>");
+                printTeam(team_array);//telling addTeam function to run
+                clearForm();//telling clearForm function to run
+              });//close click
+
+              function printTeam(team_array){
+                $("#standings").append("<tr><td>"+ team_array[0]+"</td></tr>");
+              };
+              function clearForm(){
+                $(".team_inputs").each(function(){
+                  $(this).val("");
+                });
+              };
+            });
+
+          /*function teamRegister() {
+            var output = "Your request has been submitted. If your team information below is incorrect, email us at support@beerleaguebaseball.com: <br />";
+            var teams = document.forms["teamInfo"].teamdata.length;
+              $("form :text").each(function() {
+                output += this.value + "<br />";   
+          });
+            
+              alert(output);
+            }*/
+
+            //Using Object method
+            //create empty array
+            //var allteams = new Array();
+
+            /*create event when submit button clicked*/
+            /*$(#registerTeam).click(function(){
+
+              var teamName = $("#teamName").val();
+              var sponsor = $("#sponsor").val();
+              var mgrName = $("#mgrName").val();
+              var phone = $("#phone").val();
+              var zip = $("#zip").val();
+              var email = $("#email").val();
+
+              //creat object constructor
+              function Team(teamName, sponsor, mgrName, phone, zip, email){
+                this.teamName= teamName;
+                this.sponsor= sponsor;
+                this.mgrName= mgrName;
+                this.phone= phone;
+                this.zip= zip;
+                this.email= email;
+              };
+
+              //actually create a new team
+              var newTeam = new Team(teamName, sponsor, mgrName, phone, zip, email);
+
+              //add newTeam to array
+              allteams.push(newTeam);
+            
+            });*/
+
+
+
           $(document).ready(function() {
               $("#foo1").carouFredSel();                 
               });
 
-            var newTeam = function newTeam(teamName, mgrName, phone, inputEmail, zip, sponsor) {
+            /*var newTeam = function newTeam(teamName, mgrName, phone, inputEmail, zip, sponsor) {
               this.teamName = teamName;
               this.mgrName = mgrName;
               this.phone = phone;
               this.inputEmail = ;
               this.zip = zip;
               this.sponsor = sponsor;
-            };
+            };*/
 
 
-              $('form').submit(function){
+            /*  $('form').submit(function){
                   function register()
                 {  
                   var field1 = document.getElementById('teamName').value;  
@@ -133,8 +222,8 @@
                   alert(field1+''+field2+''+field3+''+field4+''+field5+''+field6+''+field7);
 
                   }  
-              });
-          });
+              }); */
+          
         </script>
     </head>
     <body>
@@ -188,26 +277,53 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 id="myModalLabel">Team Registration Form</h3>
                       </div>
-                      <form class="form-horizontal">
+                      <form action="#" id="teamInfo">
+                          <legend>TEAM REGISTRATION FORM</legend>
+                          <label for="name">TEAM NAME</label> 
+                            <input type="text" id="teamName" name="teamName" class="team_inputs" required>
+                          <label for="name">SPONSOR</label> 
+                            <input type="text" id="sponsor" name="sponsor" class="team_inputs" required>
+                          <label for="name">MANAGER NAME</label> 
+                            <input type="text" id="mgrName" name="mgrName" class="team_inputs" required placeholder="First and Last">
+                          <label for="number">PHONE NUMBER</label> 
+                            <input type="number" id="phone" name="phone" class="team_inputs" required placeholder="0000000000">
+                          <label for="number">ZIPCODE</label> 
+                            <input type="number" id="zip" name="zip" class="team_inputs" required placeholder="99999">
+                          <label for="email">EMAIL</label> 
+                            <input type="email" id="email" name="email" class="team_inputs" required placeholder="you@email.com">
+                          <div>
+                              <input type="reset" class="btn" value="Reset">
+                              <input type="submit" value="Submit" id="registerTeam">
+                          </div>
+                      </form>
+                      
+                   
+
+
+
+
+
+                   <!-- original form markup   <form class="form-horizontal cmxform" id="commentForm" method="get" action"">
                         <fieldset>
                             <legend>Registraion</legend>
-                            <label>Team Name</label>
-                              <input type="text" id="teamName" placeholder="Team Name" name="textbox" value="">
-                            <label>Manager Name</label>
-                              <input id="mgrFirst" type="text" placeholder="First Name" name="textbox" value="">
-                              <input id="mgrLast" type="text" placeholder="Last Name" name="textbox" value="">
-                            <label>Manager E-mail</label>
-                              <input type="text" id="inputEmail" placeholder="Email" name="textbox" value="">
+                            <label for="cname">Team Name</label>
+                              <input type="text" class="required" id="teamName" placeholder="Team Name" name="textbox" value="">
+                            <label for="cname">Manager Name</label>
+                              <input class="required" id="mgrName" type="text" placeholder="First and Last Name" name="textbox" value="">
+                              
+                            <label for="cemail">Manager E-mail</label>
+                              <input type="text" id="inputEmail" class="required email" placeholder="Email" name="textbox" value="">
                             <label>Manager Phone Number</label>
                               <input type="text" id="phone" placeholder="Phone Number" name="textbox" value="">
                             <label>Manager Zip Code</label>
-                              <input type="text" id="zip" placeholder="Zip Code" name="textbox" value="">
+                              <input type="text" class="required" id="zip" placeholder="Zip Code" name="textbox" value="">
                              <label>Sponsor</label>
                              <input type="text" id="sponsor" placeholder="Team Sponsor" name="textbox" value=""></br>
-                            <button type="submit" class="btn">Register Team</button>
+                            <button type="submit" class="btn submit">Register Team</button>
                         </fieldset>
-                      </form>
-                    </div>  
+                      </form> -->
+                    </div>
+                    <div id="teamdisplay"></div>  
                 </div>
             </div>
           <div class="alert alert-error">
@@ -219,12 +335,12 @@
             <div class="span12 box what1">
                 <div class="image_carousel">
                   <div id="foo1">
-                      <img src="logo1.jpg" alt="basketball" width="225" height="140" />
-                      <img src="logo2.jpg" alt="beachtree" width="225" height="140" />
-                      <img src="logo3.jpg" alt="cupcackes" width="225" height="140" />
-                      <img src="logo4.jpg" alt="hangmat" width="225" height="140" />
-                      <img src="logo5.jpg" alt="new york" width="225" height="140" />
-                      <img src="logo6.jpg" alt="new york" width="225" height="140" />
+                      <img src="img/logo1.jpg" alt="basketball" width="225" height="140" />
+                      <img src="img/logo2.jpg" alt="beachtree" width="225" height="140" />
+                      <img src="img/logo3.jpg" alt="cupcackes" width="225" height="140" />
+                      <img src="img/logo4.jpg" alt="hangmat" width="225" height="140" />
+                      <img src="img/logo5.jpg" alt="new york" width="225" height="140" />
+                      <img src="img/logo6.jpg" alt="new york" width="225" height="140" />
                   </div>
                   <div class="clearfix"></div>
                 </div>
@@ -232,14 +348,14 @@
         </div>
         <div class="row">
             <div class="span8 box three">   
-                <table class="table">
+                <table class="table" id="standings">                  
                   <tr>
                     <th>Team</th>
                     <th>Wins</th>
                     <th>Losses</th>
                     <th>Win %</th>
                   </tr>
-                  <tr>
+                 <!-- <tr>
                     <td>Team 1</td>
                     <td>0</td>
                     <td>0</td>
@@ -286,8 +402,9 @@
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
-                  </tr>
+                  </tr> -->
                 </table>
+              
             </div>
             <div class="span4 box schedule">
                 <h3>Weekly Matchups/Results</h3>
@@ -300,7 +417,7 @@
                     </div>
                     <div id="collapseOne" class="accordion-body collapse in">
                       <div class="accordion-inner">
-                        <table class="games">
+                        <table class="games box">
                           <tr>
                             <th>Matchup</th>
                             <th>Final Score</th>
@@ -334,7 +451,7 @@
                     </div>
                     <div id="collapseTwo" class="accordion-body collapse">
                       <div class="accordion-inner">
-                         <table class="games">
+                         <table class="games box">
                           <tr>
                             <th>Matchup</th>
                             <th>Final Score</th>
@@ -367,7 +484,7 @@
                     </div>
                     <div id="collapseThree" class="accordion-body collapse">
                       <div class="accordion-inner">
-                         <table class="games">
+                         <table class="games box">
                           <tr>
                             <th>Matchup</th>
                             <th>Final Score</th>
@@ -400,7 +517,7 @@
                     </div>
                     <div id="collapseFour" class="accordion-body collapse">
                       <div class="accordion-inner">
-                         <table class="games">
+                         <table class="games box">
                           <tr>
                             <th>Matchup</th>
                             <th>Final Score</th>
