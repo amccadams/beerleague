@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beer League Baseball Sign Up Form</title>
+       <meta name = "description" content = "Beer League Baseball" >
+    <meta "author" content ="Amanda McCadams"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js">
+</script>
+
+<body>
+
+<!-- <form name = "registrationForm" action=" " method = "get"> -->
+
+<form class="form-horizontal" id="signup">
+                        <fieldset>
+     <legend>Registraion</legend>
+                            <label>Team Name</label>
+    <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
+      <label>Manager Name</label>
+        <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
+      <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
+      <label>Manager Phone Number</label>
+      <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
+    <label>Manager Zip Code</label>
+    <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
+  <label>Sponsor</label>
+  <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
+  
+  <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
+
+  <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
+  <div id="registerTeam"</div>
+  </form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  function registerTeam (form){
+    var teamName = form.teamName.value;
+    alert ("you typed" + teamName);
+  }
+//create empty array for all teams
+var allTeams = new Array ();
+
+$('#registerTeam').click(function() {
+ var team = { };
+  team.teamName = $("#teamName").val();
+  team.mgrFirst = $("#mgrFirst").val();
+  team.mgrLast = $("#mgrLast").val();
+  team.phone = $("#phone").val();
+  team.zip = $("#zip").val();
+  team.sponsor = $("#sponsor").val();
+  console.log(team);
+
+  $.ajax({
+    url: "/backlift/team",
+    type: "post",
+    dataType: "json",
+    data:team, // this line is the objcet name that i am sending to the server//
+    success: function(data){
+      console.log(data);
+      //this is where I need to add the info to the page
+       //recommended to call another function to add the data to another page
+    },
+    error: function(){
+      console.log("There was an error");
+    }
+  })
+
+
+  
+ allTeams.push(team); 
+
+});  //end click
+   
+ }); //end function ready
+
+//first create an array that will capture all of the teams' info
+//next create an objecet that will push individual team info into all teams array
+//next create 
+
+</script>
+
+
+
+
+</body>
+</head>
+</html>
