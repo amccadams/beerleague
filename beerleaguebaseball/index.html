@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen"/>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="img/glyphicons-halflings.png"/>
+        <script type="text/javascript" src="js/jquery-1.9.1.min 2.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery.carouFredSel-6.2.0.js"></script>
+         <!-- <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script> -->    
+    </head>
+    <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Bootstrap Exercise</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div> <!--navbar-->
+    <div class="container windowpane">
+        <div class="hero-unit">
+            <div class="row">
+                <div class="span12 maintext">
+                    <!-- <h1>Beer League Baseball!</h1>
+                    <h3>There's No Crying in Baseball!....But there is BEER!!!</h3>
+                    <p>It's that time of year again. Who doesn't love BEER and BASEBALL? Join our league today for FREE. Weekly matchups with other fanatics here in Nashville.</p><p>Serious people need not apply...</p> -->
+                    
+                    <a href="#myModal" role="button" class="btn" id="launch" data-toggle="modal">SIGN UP TODAY</a>
+                    <!-- Modal -->
+                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                        <h3 id="myModalLabel">Team Registration Form</h3>
+                      </div>
+                      
+                      <form class="form-horizontal" id="signup">
+                        <fieldset>
+     <legend>Registraion</legend>
+                            <label>Team Name</label>
+    <input type="text" id="teamName" name = "teamName" placeholder="Team Name" value="">
+      <label>Manager Name</label>
+        <input id="mgrFirst" name = "mgrFirst" type="text" placeholder="First Name" value="">
+      <input id="mgrLast" name = "mgrLast" type="text" placeholder="Last Name" value="">
+      <label>Manager Phone Number</label>
+      <input type="text" id="phone" name = "phone"placeholder="Phone Number" value="">
+    <label>Manager Zip Code</label>
+    <input type="text" id="zip" name = "zip"placeholder="Zip Code" value="">
+  <label>Sponsor</label>
+  <input type="text" id="sponsor" name = "sponsor" placeholder="Team Sponsor" value=""></br>
+  
+  <!-- <INPUT TYPE="button" button id= "registerTeam" NAME="button" Value="Submit" onClick="registerTeam(this.form)"> -->
+
+  <button id ="registerTeam" button type="button" name="button" class="btn">Register Team</button>
+  <div id="registerTeam"</div>
+  </form>
+                    </div>
+                    <div id="teamdisplay"></div>  
+                </div>
+            </div>
+          <!-- <div class="alert alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Don't Wait!</strong> Registration will close on Feb 28th!
+          </div>  -->
+        </div>
+        <!-- <div class="row">
+            <div class="span12 box what1">
+                <div class="image_carousel">
+                  <div id="foo1">
+                      <img src="img/logo1.jpg" alt="basketball" width="225" height="140" />
+                      <img src="img/logo2.jpg" alt="beachtree" width="225" height="140" />
+                      <img src="img/logo3.jpg" alt="cupcackes" width="225" height="140" />
+                      <img src="img/logo4.jpg" alt="hangmat" width="225" height="140" />
+                      <img src="img/logo5.jpg" alt="new york" width="225" height="140" />
+                      <img src="img/logo6.jpg" alt="new york" width="225" height="140" />
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            </div>
+        </div> -->
+        
+
+        <div class="row">
+
+          <!---Start Team List -->
+            <div class="span8 box three">   
+                <table class="table" id="standings">                  
+                  <tr>
+                    <th>Team</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Win %</th>
+                  </tr>
+
+               
+
+                  <tr>
+                    <td> <p><a id="popover" class="btn" data-toggle="popover" data-content="JSON Team info goes in here.">Team1</a></p></td>
+
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+
+
+                  <tr>
+                    <td>Team 2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 4</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 5</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 6</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 7</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td>Team 8</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                </table>
+              
+            </div>
+            <!-------End Team List -->
+
+            <div class="span4 box schedule">
+                <h3>Weekly Matchups/Results</h3>
+                <div class="accordion" id="accordion2">
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                        Week 1 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse in">
+                      <div class="accordion-inner">
+                        <table class="games box">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                       </div>                   
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                        Week 2 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games box">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                        Week 3 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseThree" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games box">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                        Week 4 Schedule
+                      </a>
+                    </div>
+                    <div id="collapseFour" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                         <table class="games box">
+                          <tr>
+                            <th>Matchup</th>
+                            <th>Final Score</th>
+                          </tr>
+                          <tr>
+                            <td>Team 1 vs Team 2</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 3 vs Team 4</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 5 vs Team 6</td>
+                            <td>0 - 0</td>
+                          </tr>
+                          <tr>
+                            <td>Team 7 vs Team 8</td>
+                            <td>0 - 0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p><a class="btn" href="#">Read more</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 box newsletter">
+                <h4>Sign up for our newsletter</h4>
+                <div class="control-group">
+                  <label class="control-label" for="inputIcon">Email address</label>
+                  <div class="controls">
+                    <div class="input-prepend">
+                      <span class="add-on"><i class="icon-envelope"></i></span>
+                      <input class="span2" id="inputIcon" type="text">
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© Company 2013</p>
+        </footer>
+    </div>
+    <script>
+           
+           $(document).ready(function(){
+              //form validation
+              // $("#commentForm").validate();
+
+var allTeams = new Array ();
+
+$('#registerTeam').click(function() {
+ var team = { };
+  team.teamName = $("#teamName").val();
+  team.mgrFirst = $("#mgrFirst").val();
+  team.mgrLast = $("#mgrLast").val();
+  team.phone = $("#phone").val();
+  team.zip = $("#zip").val();
+  team.sponsor = $("#sponsor").val();
+  console.log(team);
+
+  $.ajax({
+    url: "/backliftapp/team",
+    type: "post",
+    dataType: "JSON",
+    data:team, // this line is the objcet name that i am sending to the server//
+    success: function(data){
+      console.log(data);
+      allTeams.push(data);
+      //this is where I need to add the info to the page
+       //recommended to call another function to add the data to another page
+      
+    },
+    error: function(){
+      console.log("There was an error");
+    }
+  }); //end of ajax "post"
+
+  $("#signup")[0].reset(); //resets form after each time register is clicked
+
+// function listTeams(){
+//  $.ajax({
+//     url: "/backliftapp/team",
+//     type: "get",
+//     dataType: "",
+//     data:team,
+//     success: function(allTeams){
+//       $("#team")// find tabel name id name and put here & clear out contents with html "" loop over array of all items and for each element write out html to the tabel data 
+//     },
+
+//     error: function(){
+//       console.log("There was an error");
+//     }
+//   })
+
+}); //end click
+
+ 
+              
+           
+             
+              
+
+           
+         
+              // $("#foo1").carouFredSel();   
+
+              // $("#popover").popover();              
+              // // });
+
+}); //document.ready
+          
+      
+
+        </script>
+          </body>
+          </html>

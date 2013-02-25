@@ -1,0 +1,96 @@
+
+            .box{
+                background: rgba(0,0,0,0.2);
+                padding: 10px 0px;
+                text-align: center;
+                margin-top: 10px;
+                border-radius: 5px;
+
+            }
+
+            .box h3, .box h4, .box p, .box a{
+                padding-left: 6px;
+            }
+
+            .what1, .side, .three{
+                text-align: left;
+            }
+
+            .newsletter{
+                background: #ffcc99;
+            }
+
+            .carousel-indicators {
+                right: 42px;
+            }   
+
+            .carousel-control.left{
+                margin-left: 91px;
+            }
+
+            .windowpane{
+                margin-top: 60px;
+
+            }
+
+            .hero-unit{
+                padding: 15px;
+                padding-left: 60px;
+                background-image: url("img/beer.jpg");
+                height: 600px;
+                
+            }
+
+            .control-group{
+                display: inline-block;
+                width: 400px;
+            }
+
+            .control-label{
+                display: inline-block;
+            }
+            .controls{
+                display: inline-block;
+            }
+
+            .input-prepend{
+                margin-bottom: 4px;
+            }
+
+            a #launch.btn{
+                margin-left: 6px;
+            }
+
+            .alert-error{
+                background-color: #ff9999;
+                color: #990000;
+                margin-top: 200px;
+            }
+
+          .maintext h1, .maintext h3, .maintext p{
+            color: white;
+          }
+
+          .maintext p{
+            width: 580px;
+            line-height: 25px;
+          }
+
+          .schedule{
+            text-align: center;
+            background-image: url("img/beer_side.jpg");
+            font-size: 115%;
+          }
+
+          .table{
+            background-image: url("img/baseball.jpg");
+            font-size: 115%;
+          }
+
+          .games{
+            width: 335px;
+            background: rgba(0,0,0,0.14);
+          }
+
+
+      
