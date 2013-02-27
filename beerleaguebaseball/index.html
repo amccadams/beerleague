@@ -122,8 +122,6 @@
                     <th>Win %</th>
                   </tr>
 
-               
-
                   <tr>
 
                     <td id ="team1">Team 1</td>
@@ -404,23 +402,22 @@ function listTeams(){
         console.log(this);
       });
     },
-      // find table name id name and put here & clear out contents with html "" loop over array of all items and for each element write out html to the tabel data 
-      // console.log(data);
-  
-
-
     error: function(){
       console.log("There was an error");
     }
   })
 
-// $.ajax({
-//     type: "DELETE",
-//     url: "/backliftapp/team/01301fab-d431-4acc-b5d1-8d7480226953", 
-//     success: function(data) { 
-//         console.log("Deleted!");
-//     } 
+
 }
+
+
+$.ajax({
+    type: "DELETE",
+    url: "/backliftapp/team/f0cf6b2f-b778-445b-ad55-1bd6bda32fb0", 
+    success: function(data) { 
+        console.log("Deleted!");
+    } 
+});  //use this code to delete teams that have been entered - replace id number above with id number from ajax data file
 
 listTeams();
 
