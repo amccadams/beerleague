@@ -125,7 +125,8 @@
                
 
                   <tr>
-                    <td> <p><a id="popover" class="btn" data-toggle="popover" data-content="JSON Team info goes in here.">Team1</a></p></td>
+
+                    <td id ="team1">Team 1</td>
 
                     <td>0</td>
                     <td>0</td>
@@ -134,15 +135,7 @@
 
 
                   <tr>
-                    <td>Team 2</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>.000</td>
-                  </tr>
-                  
-
-                  <tr>
-                    <td>Team 3</td>
+                    <td id ="team2">Team 2</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -150,7 +143,7 @@
                   
 
                   <tr>
-                    <td>Team 4</td>
+                    <td id= "team3">Team 3</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -158,7 +151,7 @@
                   
 
                   <tr>
-                    <td>Team 5</td>
+                    <td id = "team4">Team 4</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -166,7 +159,7 @@
                   
 
                   <tr>
-                    <td>Team 6</td>
+                    <td id = "team5">Team 5</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -174,7 +167,7 @@
                   
 
                   <tr>
-                    <td>Team 7</td>
+                    <td id = "team6">Team 6</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -182,7 +175,15 @@
                   
 
                   <tr>
-                    <td>Team 8</td>
+                    <td id ="team7">Team 7</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>.000</td>
+                  </tr>
+                  
+
+                  <tr>
+                    <td id="team8">Team 8</td>
                     <td>0</td>
                     <td>0</td>
                     <td>.000</td>
@@ -358,6 +359,7 @@
 
 var allTeams = new Array ();
 
+
 $('#registerTeam').click(function() {
  var team = { };
   team.teamName = $("#teamName").val();
@@ -387,22 +389,42 @@ $('#registerTeam').click(function() {
 
   $("#signup")[0].reset(); //resets form after each time register is clicked
 
-// function listTeams(){
-//  $.ajax({
-//     url: "/backliftapp/team",
-//     type: "get",
-//     dataType: "",
-//     data:team,
-//     success: function(allTeams){
-//       $("#team")// find tabel name id name and put here & clear out contents with html "" loop over array of all items and for each element write out html to the tabel data 
-//     },
 
-//     error: function(){
-//       console.log("There was an error");
-//     }
-//   })
 
 }); //end click
+
+function listTeams(){
+ $.ajax({
+    url: "/backliftapp/team",
+    type: "GET",
+    success: function(data) {
+      var i=1; 
+      $.each(data,function() {
+        $("#team" +i).html(this.teamName); i=i+1;
+        console.log(this);
+      });
+    },
+      // find table name id name and put here & clear out contents with html "" loop over array of all items and for each element write out html to the tabel data 
+      // console.log(data);
+  
+
+
+    error: function(){
+      console.log("There was an error");
+    }
+  })
+
+// $.ajax({
+//     type: "DELETE",
+//     url: "/backliftapp/team/01301fab-d431-4acc-b5d1-8d7480226953", 
+//     success: function(data) { 
+//         console.log("Deleted!");
+//     } 
+}
+
+listTeams();
+
+
 
  
               
