@@ -227,7 +227,8 @@
     </div>
     <script>
            
-           $(document).ready(function(){
+ $(document).ready(function(){
+  
               //form validation
               // $("#commentForm").validate();
 
@@ -379,8 +380,12 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
                 awayScore = 0;
                 homeScore = 0; 
 
-                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-home'/>-<input type='num' size='2' maxlength='2' class='score-field score-visitor'/></td><td class='enterscore'><a class='btn'>Enter Score</a></td></tr>")
+                $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-home'/>-<input type='num' size='2' maxlength='2' class='score-field score-visitor'/></td><td class='enterscore'><a class='btn' id='" + w + "' href=''>Enter Score</a></td></tr>")
               }//end games loop
+
+              
+
+              
         } //end if statement for even # of teams
 
 
@@ -394,19 +399,63 @@ function populateSchedule (d) {  // Note: (d) is from ajax "data", set equal to 
       var homeTeam = d[s[w][g][1]-2].teamName
       awayScore = 0;
       homeScore = 0;     
-      $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-home'/>-<input type='num' size='2' maxlength='2' class='score-field score-visitor'/></td><td class='enterscore'><a class='btn'>Enter Score</a></td></tr>")
+      $("#week" + w).append("<tr><td>" + awayTeam + " vs. " + homeTeam + "</td><td class='inputScore'><input type='num' size='2' maxlength='2' class='score-field score-home'/>-<input type='num' size='2' maxlength='2' class='score-field score-visitor'/></td><td class='enterscore'><a class='btn' id='" + w + "' href=''>Enter Score</a></td></tr>")
 
       }//end games(g) loop
     } // end ELSE loop for BYE WEEKS if odd # of teams in league
   }// end week(w) loop
+
+//start score input function
+var allScores = new Array (); //declaring array for all teams in league
+
+  $('a.btn').click(function(ev){
+    ev.preventDefault();
+    
+    var week = $(this).attr("id");
+
+
+   
+    var scoreHome = $(this).parent().prev().find('.score-home').val();
+    var scoreVisitor = $(this).parent().prev().find('.score-visitor').val();
+
+    // scoreData = function(){ 
+    //   this.scoreHome =$("scoreHome").val();
+    //   this.scoreVisitor =$("scoreVisitor").val();
+    // };
+
+    console.log(scoreHome);
+    console.log(scoreVisitor);
+    // console.log(scoreData);
+    // alert(scoreData);
+
+
+
+
+
+
+}); //end score input click function
+
 }// end populateSchedule
             
 
-$('.enterscore').click(function(){
-  var btn = $(this);
 
-  btn.closest('tr')
-});
+
+
+// $('.enterscore').click(function(){
+//   var btn = $(this);
+//   awayScore = $(".score-visitor").val();
+//   homeScore = $(".score-home").val();
+//                 var btn = $(this);
+
+//                 btn.closest('tr')
+//                 console.log(awayScore);
+//                 console.log(homeScore);
+//               }); //end click
+//   console.log(btn);
+
+//   // btn.closest('tr')
+// // });
+
               
 
           
